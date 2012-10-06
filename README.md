@@ -1,4 +1,9 @@
-This is a PLSA(Probabilistic Latent Semantic Analysis) implementation via the EM(Expectation-Maximization) algorithm.
+This is a PLSA (Probabilistic Latent Semantic Analysis) implementation via the EM (Expectation-Maximization) algorithm.
+
+Current issues:
+
+1. The code are not well tested, so it may contain bugs. The test text are in the folder \./texts and \./test.
+2. The code seems not working well with small datasets, such as \./test
 
 Reference:
 
