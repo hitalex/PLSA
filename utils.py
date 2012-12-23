@@ -42,11 +42,11 @@ def choose(vec, pr):
     # normalize the distributions
     normalize(pr)
     r = random()
-    index = -1
+    index = 0
     while (r > 0):
         r = r - pr[index]
         index = index + 1
-    return vec[index]
+    return vec[index-1]
     
 if __name__ == "__main__":
     # This is a test
