@@ -36,7 +36,7 @@ class Document(object):
         lists for lines and words.
         '''
         self.filepath = filepath
-        self.file = open(self.filepath)
+        #self.file = open(self.filepath)
         self.lines = []
         self.words = []
 
@@ -47,7 +47,12 @@ class Document(object):
         lowercase everything; preserve contractions; disallow strings that
         include non-letters.
         '''
-        self.lines = [line for line in self.file]
+        self.file = open(self.filepath)
+        try:
+            self.lines = [line for line in self.file]
+        finally:
+            self.file.close()
+            
         for line in self.lines:
             words = line.split(' ')
             for word in words:

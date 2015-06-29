@@ -2,6 +2,7 @@ import os
 import glob
 import sys
 from operator import itemgetter # for sort
+import cPickle
 
 import plsa
 
@@ -34,7 +35,7 @@ def print_document_topic_distribution(corpus, number_of_topics, topk, filepath):
     Print document-topic distribution to file and list @topk most probable topics for each document
     """
     print "Writing document-topic distribution to file: " + filepath
-    assert(topk < number_of_topics)
+    assert(topk <= number_of_topics)
     f = open(filepath, "w")
     D = len(corpus.documents) # number of documents
     for d in range(D):
@@ -80,6 +81,7 @@ def main(argv):
     
     #print corpus.document_topic_prob
     #print corpus.topic_word_prob
+    #cPickle.dump(corpus, open('./models/corpus.pickle', 'w'))
     
     print_topic_word_distribution(corpus, number_of_topics, 20, "./topic-word.txt")
     print_document_topic_distribution(corpus, number_of_topics, 10, "./document-topic.txt")
